@@ -1,0 +1,40 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: left;
+  width: 50%;
+  border-bottom: black solid 2px;
+}
+
+.tab {
+  width: 110px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.tab.active {
+  background-color: rgb(73, 73, 73);
+  color: #fff;
+}
+
+.content {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 700px) {
+  .tab-container,
+  .content {
+    width: 100%;
+  }
+}
