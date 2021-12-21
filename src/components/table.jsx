@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import $ from "jquery";
-
+import "./css/table.css";
 const Table = (props) => {
   const [data, setData] = useState(null);
 
@@ -18,15 +18,33 @@ const Table = (props) => {
     };
 
     fetchApi();
-  }, [props.league]);
-
-  const showData = () => {
-    console.log(data);
-  };
+  }, [props.league, props.type]);
 
   return (
-    <div>
-      <button onClick={showData}>Show</button>
+    <div className="table">
+      <div className="table-item">
+        <div className="pos">Pos</div>
+        <div className="team">Club</div>
+        <div className="p">Pts</div>
+        <div className="mp">MP</div>
+        <div className="w">W</div>
+        <div className="d">D</div>
+        <div className="l">L</div>
+      </div>
+      {data &&
+        data.standings[0].table.map((s, i) => {
+          return (
+            <div className="table-item" key={i}>
+              <div className="pos">{i + 1}</div>
+              <div className="team">{s.team.name}</div>
+              <div className="p">{s.points}</div>
+              <div className="mp">{s.playedGames}</div>
+              <div className="w">{s.won}</div>
+              <div className="d">{s.draw}</div>
+              <div className="l">{s.lost}</div>
+            </div>
+          );
+        })}
     </div>
   );
 };

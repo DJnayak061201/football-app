@@ -1,0 +1,18 @@
+.fContainer, .fCardContainer, .fixture{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.fCard {
+    width: 40%;
+    margin: 10px;
+    box-shadow: 10px 5px 5px black;
+}
+
+.fTeam{
+    width: 33%;
+    text-align: center;
+    font-size: 12px;
+}

@@ -22,13 +22,18 @@ const Stats = (props) => {
 
   return (
     <div className="list">
+      <div className="list-item">
+        <div className="rank">Rank</div>
+        <div className="name">Name</div>
+        <div className="goals">Goals</div>
+      </div>
       {data &&
         data.scorers.map((s, i) => {
           return (
             <div className="list-item" key={i}>
-              <div>{i + 1}</div>
-              <div>{s.player.name}</div>
-              <div>{s.numberOfGoals}</div>
+              <div className="rank">{i + 1}</div>
+              <div className="name">{s.player.name}</div>
+              <div className="goals">{s.numberOfGoals}</div>
             </div>
           );
         })}

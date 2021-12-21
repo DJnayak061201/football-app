@@ -1,19 +1,24 @@
-.list {
+.table {
   width: 100%;
+  /* font-size: 10px; */
 }
-
-.list-item {
+.table-item {
   display: flex;
   justify-content: center;
   margin: 10px;
+  width: 100%;
 }
 
-.rank,
-.goals {
+.pos,
+.p,
+.mp,
+.w,
+.d,
+.l {
   width: 10%;
   text-align: center;
 }
 
-.list-item .name {
-  width: 50%;
+.team {
+  width: 40%;
 }

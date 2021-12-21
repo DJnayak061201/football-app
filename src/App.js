@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Fixtures from "./components/fixtures";
 import Stats from "./components/stats";
 import Table from "./components/table";
 
@@ -20,7 +21,7 @@ function App() {
       case "table":
         return <Table league={league} />;
       case "fixtures":
-        return <Table type="fixtures" />;
+        return <Fixtures league={league} />;
       case "stats":
         return <Stats league={league} />;
       default:
