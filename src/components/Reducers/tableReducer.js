@@ -2,7 +2,7 @@ import $ from "jquery";
 const TableReducer = (state = [], action = {}) => {
     switch(action.type)
     {
-        case "set":
+        case "setTable":
             return action.data;
         default:
             return state;
@@ -19,14 +19,14 @@ export const setTable = (league) => async (dispatch) => {
         type: "GET",
       }).done(function (response) {
         dispatch({
-            type: "set",
+            type: "setTable",
             data: response,
         })
       });
     }
     catch{
         dispatch({
-            type: "set",
+            type: "setTable",
             data: { statuscode: 400 },
         })
     }

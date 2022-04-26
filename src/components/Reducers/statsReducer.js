@@ -2,7 +2,7 @@ import $ from "jquery";
 const StatsReducer = (state = [], action = {}) => {
     switch(action.type)
     {
-        case "set":
+        case "setStats":
             return action.data;
         default:
             return state;
@@ -19,14 +19,14 @@ export const setStats = (league) => async (dispatch) => {
         type: "GET",
       }).done(function (response) {
         dispatch({
-            type: "set",
+            type: "setStats",
             data: response,
         })
       });
     }
     catch {
         dispatch({
-            type: "set",
+            type: "setStats",
             data: { statuscode: 400 },
         })
     }

@@ -1,27 +1,17 @@
-import { useEffect, useState } from "react";
-import $ from "jquery";
+import { useEffect } from "react";
 import "./css/table.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setTable } from "./Reducers/tableReducer";
 const Table = (props) => {
-  const [data, setData] = useState(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    const fetchApi = async () => {
-      const url = `https://api.football-data.org/v2/competitions/${props.league}/standings`;
-      $.ajax({
-        headers: { "X-Auth-Token": "9b74c6594b444d4ebb334429755f6613" },
-        url: url,
-        dataType: "json",
-        type: "GET",
-      }).done(function (response) {
-        setData(response);
-      });
-    };
+    dispatch(setTable(props.league));
+  }, [props.league, dispatch]);
 
-    fetchApi();
-  }, [props.league, props.type]);
+  const { table } = useSelector(store => store);
 
   return (
-    <div className="table">
+    <div className="table" id = "table">
       <div className="table-item">
         <div className="pos">Pos</div>
         <div className="team">Club</div>
@@ -31,8 +21,8 @@ const Table = (props) => {
         <div className="d">D</div>
         <div className="l">L</div>
       </div>
-      {data &&
-        data.standings[0].table.map((s, i) => {
+      {table.standings !== undefined && table.length !== 0 &&
+        table.standings[0].table.map((s, i) => {
           return (
             <div className="table-item" key={i}>
               <div className="pos">{i + 1}</div>

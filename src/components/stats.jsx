@@ -1,34 +1,24 @@
-import { useEffect, useState } from "react";
-import $ from "jquery";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./css/stats.css";
+import { setStats } from "./Reducers/statsReducer";
 const Stats = (props) => {
-  const [data, setData] = useState(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    const fetchApi = async () => {
-      const url = `https://api.football-data.org/v2/competitions/${props.league}/scorers`;
-      $.ajax({
-        headers: { "X-Auth-Token": "9b74c6594b444d4ebb334429755f6613" },
-        url: url,
-        dataType: "json",
-        type: "GET",
-      }).done(function (response) {
-        setData(response);
-      });
-    };
+    dispatch(setStats(props.league));
+  }, [dispatch,props.league])
 
-    fetchApi();
-  }, [props.league]);
+  const { stats } = useSelector(store => store);
 
   return (
-    <div className="list">
+    <div className="list" id = "stats" style = {{ display: 'none' }}>
       <div className="list-item">
         <div className="rank">Rank</div>
         <div className="name">Name</div>
         <div className="goals">Goals</div>
       </div>
-      {data &&
-        data.scorers.map((s, i) => {
+      {stats.scorers !== undefined && stats.length !== 0 && 
+        stats.scorers.map((s, i) => {
           return (
             <div className="list-item" key={i}>
               <div className="rank">{i + 1}</div>

@@ -2,7 +2,7 @@ import $ from "jquery";
 const FixturesReducer = (state = [], action = {}) => {
     switch(action.type)
     {
-        case "set":
+        case "setFixtures":
             return action.data;
         default:
             return state;
@@ -19,14 +19,14 @@ export const setFixtures = (league) => async (dispatch) => {
             type: "GET",
           }).done(function (response) {
             dispatch({
-                type: "set",
+                type: "setFixtures",
                 data: response,
             })
           });
     }
     catch{
         dispatch({
-            type: "set",
+            type: "setFixtures",
             data: { statuscode: 400 },
         })
     }
