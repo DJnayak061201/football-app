@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import $ from "jquery";
 
+import FixtureCard from "./fixtureCard";
 import "./css/fixtures.css";
 
 const Fixtures = (props) => {
@@ -34,20 +35,6 @@ const Fixtures = (props) => {
   const showData = () => {
     console.log(filtered);
   }
-  
-  const FixtureCard = (props) =>
-{
-  return (
-    <div className = "fCard">
-      <div className="date">{props.match.utcDate}</div>
-      <div className = "fixture">
-        <div className="fTeam">{props.match.awayTeam.name}</div>
-        <div>{props.match.status}</div>
-        <div className="fTeam">{props.match.homeTeam.name}</div>
-      </div> 
-    </div>
-  );
-}
 
   return (
     <div className = "fContainer">

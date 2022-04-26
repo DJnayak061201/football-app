@@ -27,6 +27,7 @@ function App() {
       default:
     }
   };
+  
   return (
     <div className="App">
       <div className="header">FOOTBALL APP</div>
