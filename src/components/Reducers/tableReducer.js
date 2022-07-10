@@ -11,7 +11,7 @@ const TableReducer = (state = [], action = {}) => {
 
 export const setTable = (league) => async (dispatch) => {
     try {
-        const url = `/competitions/${league}/standings`;
+        const url = `https://api.football-data.org/v4/competitions/${league}/standings`;
       $.ajax({
         headers: { "X-Auth-Token": "9b74c6594b444d4ebb334429755f6613" },
         url: url,
