@@ -1,17 +1,17 @@
 import $ from "jquery";
-const TableReducer = (state = [], action = {}) => {
+const TeamsReducer = (state = [], action = {}) => {
     switch(action.type)
     {
-        case "setTable":
+        case "setTeams":
             return action.data;
         default:
             return state;
     }
 }
 
-export const setTable = (league) => async (dispatch) => {
+export const setTeams = (league) => async (dispatch) => {
     try {
-        const url = `/competitions/${league}/standings`;
+        const url = `https://api.football-data.org/v2/competitions/${league}/teams`;
       $.ajax({
         headers: { "X-Auth-Token": "9b74c6594b444d4ebb334429755f6613" },
         url: url,
@@ -19,7 +19,7 @@ export const setTable = (league) => async (dispatch) => {
         type: "GET",
       }).done(function (response) {
         dispatch({
-            type: "setTable",
+            type: "setTeams",
             data: response,
         })
       });
@@ -32,4 +32,4 @@ export const setTable = (league) => async (dispatch) => {
     }
 }
 
-export default TableReducer;
+export default TeamsReducer;

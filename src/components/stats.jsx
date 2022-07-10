@@ -11,7 +11,7 @@ const Stats = (props) => {
   const { stats } = useSelector(store => store);
 
   return (
-    <div className="list" id = "stats" style = {{ display: 'none' }}>
+    <div className="list" id = "stats">
       <div className="list-item">
         <div className="rank">Rank</div>
         <div className="name">Name</div>
@@ -23,7 +23,7 @@ const Stats = (props) => {
             <div className="list-item" key={i}>
               <div className="rank">{i + 1}</div>
               <div className="name">{s.player.name}</div>
-              <div className="goals">{s.numberOfGoals}</div>
+              <div className="goals">{s.goals}</div>
             </div>
           );
         })}

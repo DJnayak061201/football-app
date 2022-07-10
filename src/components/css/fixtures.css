@@ -6,9 +6,11 @@
 }
 
 .fCard {
-    width: 40%;
+    width: min(80%, 250px);
     margin: 10px;
-    box-shadow: 10px 5px 5px black;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
 .fTeam{

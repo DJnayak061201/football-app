@@ -1,12 +1,20 @@
 .table {
-  width: 100%;
+  width: 30%;
+  height: 60vh;
   /* font-size: 10px; */
+  border: 2px solid black;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
 .table-item {
   display: flex;
   justify-content: center;
-  margin: 10px;
   width: 100%;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .pos,
@@ -15,10 +23,13 @@
 .w,
 .d,
 .l {
-  width: 10%;
+  width: 8%;
   text-align: center;
 }
 
 .team {
-  width: 40%;
+  width: 58%;
+  display: flex;
+  overflow-x: hidden;
+  white-space: nowrap;
 }

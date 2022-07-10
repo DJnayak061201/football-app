@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "./css/table.css";
 import { useDispatch, useSelector } from "react-redux";
 import { setTable } from "./Reducers/tableReducer";
+import Crest from "./crest";
 const Table = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,12 +22,15 @@ const Table = (props) => {
         <div className="d">D</div>
         <div className="l">L</div>
       </div>
-      {table.standings !== undefined && table.length !== 0 &&
+      {table.standings !== undefined && table.length !== 0 ? 
         table.standings[0].table.map((s, i) => {
           return (
             <div className="table-item" key={i}>
               <div className="pos">{i + 1}</div>
-              <div className="team">{s.team.name}</div>
+              <div className="team">
+                <Crest url = {s.team.crest} w = "20px" h = "20px"/>
+                {s.team.shortName}
+              </div>
               <div className="p">{s.points}</div>
               <div className="mp">{s.playedGames}</div>
               <div className="w">{s.won}</div>
@@ -34,7 +38,11 @@ const Table = (props) => {
               <div className="l">{s.lost}</div>
             </div>
           );
-        })}
+        })
+        :
+        <div>
+            Loading...
+        </div>}
     </div>
   );
 };
