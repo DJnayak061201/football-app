@@ -10,7 +10,7 @@ const FixturesReducer = (state = [], action = {}) => {
 }
 
 export const setFixtures = (league) => async (dispatch) => {
-    const url = `https://thingproxy.freeboard.io/fetch/https://api.football-data.org/v4/competitions/${league}/matches`;
+    const url = `https://api.football-data.org/v2/competitions/${league}/matches`;
     try{
         $.ajax({
             headers: { "X-Auth-Token": "9b74c6594b444d4ebb334429755f6613" },
