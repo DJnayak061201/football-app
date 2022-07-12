@@ -11,7 +11,7 @@ const StatsReducer = (state = [], action = {}) => {
 
 export const setStats = (league) => async (dispatch) => {
     try {
-        const url = `https://api.football-data.org/v4/competitions/${league}/scorers`;
+        const url = `https://thingproxy.freeboard.io/fetch/https://api.football-data.org/v4/competitions/${league}/scorers`;
       $.ajax({
         headers: { "X-Auth-Token": "9b74c6594b444d4ebb334429755f6613" },
         url: url,

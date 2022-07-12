@@ -42,7 +42,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://api.football-data.org/v4",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
